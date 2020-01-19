@@ -9,11 +9,13 @@ import pages.HomePage;
 import utils.SeleniumUtils;
 
 public class HomePageTest extends TestBase {
+    public HomePageTest() {
+        super();
+    }
     HomePage homePage;
 
     @BeforeMethod(alwaysRun = true)
     public void setUp(){
-        initializer();
         homePage = new HomePage();
 
 
@@ -25,6 +27,7 @@ public class HomePageTest extends TestBase {
 
     @Test
     public void verifyHomeTitle(){
+        SeleniumUtils.sleep(3000);
         Assert.assertEquals(driver.getTitle(),"Revolution Robotics Foundation");
         SeleniumUtils.sleep(3000);
     }

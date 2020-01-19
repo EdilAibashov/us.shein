@@ -18,10 +18,14 @@ public class HomePage extends TestBase {
     @FindBy(id = "customer_register_link")
     public WebElement Reg_Btn;
 
-    public void navigateToHomePage(){
-        SeleniumUtils.sleep(3000);
-        SeleniumUtils.click(robots);
-        SeleniumUtils.highlightElement(Reg_Btn);
-        SeleniumUtils.click(Reg_Btn);
+
+
+
+    public void ClickHomePage(){
+        robots.click();
+    }
+    public void clickSignUp(){
+        ClickHomePage();
+        Reg_Btn.click();
     }
 }
