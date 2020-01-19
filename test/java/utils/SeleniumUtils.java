@@ -55,6 +55,9 @@ public class SeleniumUtils extends TestBase {
         waitForVisibilityOfElement(element);
         return element.getText();
     }
+    public static void iFrame(WebElement element){
+
+    }
 
     public static void moveIntoView(WebElement element){
         try {
