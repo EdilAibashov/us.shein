@@ -11,7 +11,7 @@ public class Screenshots extends TestBase {
     public static void captureScreenShot(String screenshotName){
         try{
             File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screenshot, new File("./src/test/utils/" + screenshotName + ".jpeg"));
+            FileUtils.copyFile(screenshot, new File("./src/main/resources/ScreenShots/" + screenshotName + ".jpeg"));
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -49,7 +49,7 @@ public class NewUserInformation {
     public void createNewUser(){
         setFirstName(faker.name().firstName());
         setLastName(faker.name().lastName());
-        setEmail(getFirstName()+"."+getLastName()+"@zzz.com");
+        setEmail(getFirstName()+"."+getLastName()+"@mail.com");
         setPassword(getFirstName() + getLastName() + "123#");
     }
 }

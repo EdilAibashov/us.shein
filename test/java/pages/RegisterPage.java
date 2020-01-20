@@ -5,6 +5,7 @@ import io.techleadacademy.base.TestBase;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.Screenshots;
 import utils.SeleniumUtils;
 
 public class RegisterPage extends TestBase {
@@ -29,11 +30,6 @@ public class RegisterPage extends TestBase {
     @FindBy(xpath = "//input[@class='btn btn--full']")
     public WebElement signUp_Btn;
 
-
-    public void navigateToRegisterPage() {
-        HomePage homePage = new HomePage();
-    }
-
     public void registerNewUser() throws InterruptedException {
         HomePage homePage = new HomePage();
         homePage.clickSignUp();
@@ -43,15 +39,15 @@ public class RegisterPage extends TestBase {
         SeleniumUtils.sendKeys(email, user.getEmail());
         SeleniumUtils.sendKeys(password, user.getPassword());
 
-
         clickSignUp();
-    }
+        screenShot();
 
+    }
     public void clickSignUp() {
         SeleniumUtils.click(signUp_Btn);
     }
-
-    public String getTilte() {
-        return driver.getTitle();
+    public void screenShot(){
+        Screenshots.captureScreenShot("reCAPTCHA");
     }
+
 }

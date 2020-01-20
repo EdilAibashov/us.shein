@@ -71,7 +71,7 @@ public class SeleniumUtils extends TestBase {
         for(int i = 0; i < 2; i++){
             try{
                 if (i == 0) {
-                    js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: black; border: 3px solid red; background: yellow");
+                    js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: purple; border: 3px solid red; background: green");
                 }else{
                     sleep(1000);
                     js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "");

@@ -6,13 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class BasePage extends TestBase {
-    public BasePage(){
-        super();
-        PageFactory.initElements(driver, this);
-    }
-
-    @FindBy(name = "anyname")
-    public WebElement anyelement;
+//    public BasePage(){
+//        super();
+//        PageFactory.initElements(driver, this);
+//    }
+//
+//    @FindBy(name = "anyname")
+//    public WebElement anyelement;
 
 
 

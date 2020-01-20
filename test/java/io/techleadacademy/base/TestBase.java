@@ -13,6 +13,11 @@ import java.util.concurrent.TimeUnit;
 public class TestBase {
     public static WebDriver driver = null;
     public static final String propertyPath = "src/main/resources/configurations/configurations.properties";
+    private static long implicitWait = Long.parseLong(ConfigReader.readProperty(propertyPath,"implicitWait"));
+    private static String url = ConfigReader.readProperty(propertyPath, "url");
+    private static String browser = ConfigReader.readProperty(propertyPath, "browser");
+
+
 
     public TestBase(){
         getDriver();
@@ -23,10 +28,10 @@ public class TestBase {
         initialize(ConfigReader.readProperty(propertyPath,"browser"));
     }
 
-//    @AfterMethod
-//    public void tearDown(){
-//        closeDriver();
-//    }
+    @AfterMethod
+    public void tearDown(){
+        closeDriver();
+    }
 
 
     public static void initialize(String browser){
@@ -48,12 +53,10 @@ public class TestBase {
             default:
                 System.out.println("Invalid browser type");
         }
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
-        driver.get(ConfigReader.readProperty(propertyPath, "url"));
+        driver.manage().timeouts().implicitlyWait(implicitWait, TimeUnit.SECONDS);
+        driver.get(url);
     }
-
     public static void closeDriver(){
         if (driver != null){
             driver.close();
@@ -67,12 +70,23 @@ public class TestBase {
         driver = null;
     }
 
-    public WebDriver getDriver(){
+    public void getDriver(){
         if (driver != null)
-            return driver;
+            return;
         initialize(ConfigReader.readProperty(propertyPath,"browser"));
-        return driver;
     }
+    public static void initializer(){
+        switch (browser){
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+        }
+
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(implicitWait, TimeUnit.SECONDS);
+        driver.get(url);
+    }
+
 
 
 
