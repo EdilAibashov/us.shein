@@ -28,10 +28,10 @@ public class TestBase {
         initialize(ConfigReader.readProperty(propertyPath,"browser"));
     }
 
-    @AfterMethod
-    public void tearDown(){
-        closeDriver();
-    }
+//    @AfterMethod
+//    public void tearDown(){
+//        closeDriver();
+//    }
 
 
     public static void initialize(String browser){

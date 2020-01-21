@@ -4,11 +4,9 @@
     </test>
     <test name ="Smoke Test">
         <classes>
-            <class name="tests.HomePageTest">
-            </class>
-            <class name="tests.RegisterPageTest">
-
-            </class>
+            <class name="tests.HomePageTest"/>
+            <class name="tests.RegisterPageTest"/>
+            <class name="tests.ShopPageTest"/>
         </classes>
 <!--        <packages>-->
 <!--            <package name="src.test.java.tests.HomePageTest"/>-->

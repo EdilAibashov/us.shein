@@ -1,10 +1,11 @@
 package TestData;
 
 import com.github.javafaker.Faker;
+import io.techleadacademy.base.TestBase;
 
 import java.util.Locale;
 
-public class NewUserInformation {
+public class NewUserInformation extends TestBase {
     public NewUserInformation(){
         createNewUser();
     }
